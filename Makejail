@@ -1,0 +1,64 @@
+INCLUDE options/options.makejail
+
+ARG calibreweb_tag=13.3
+ARG calibreweb_download_metadata=1
+ARG calibreweb_admin_pass?
+
+FROM --entrypoint gh+AppJail-makejails/calibreweb calibreweb:${calibreweb_tag}
+
+CMD if [ "${calibreweb_download_metadata}" != 0 ] && [ ! -f /library/metadata.db ]; then \
+        mkdir -p /library; \
+        fetch -qo /library/metadata.db \
+            https://github.com/janeczku/calibre-web/raw/master/library/metadata.db; \
+        chown calibre:calibre /library; \
+        chown calibre:calibre /library/metadata.db; \
+    fi
+
+RAW if appjail cmd jexec "${APPJAIL_JAILNAME}" [ ! -f /conf/app.db ]; then
+        COPY files/app.db /conf/app.db
+        CMD chown calibre:calibre /conf/app.db
+RAW fi
+
+USER calibre
+WORKDIR /calibre
+
+RAW if [ -n "${calibreweb_admin_pass}" ]; then
+        RUN .local/bin/cps \
+                -p /conf \
+                -g /conf \
+                -o /dev/stdout \
+                -s "admin:${calibreweb_admin_pass}"
+RAW fi
+
+STOP
+
+STAGE start
+
+WORKDIR /calibre
+
+ENV OAUTHLIB_RELAX_TOKEN_SCOPE=1
+
+RUN daemon \
+        -r \
+        -u calibre \
+        -t "Web app for browsing, reading and downloading eBooks stored in a Calibre database" \
+        -P /calibre/.master.pid \
+        -p /calibre/.pid \
+        -o /calibre/.log \
+            .local/bin/cps \
+                -i 0.0.0.0 \
+                -p /conf \
+                -g /conf \
+                -o /dev/stdout
+
+STAGE custom:calibre_status
+
+CMD if [ -f "/calibre/.pid" ]; then \
+        top -ap `head -1 /calibre/.pid`; \
+    fi
+
+STAGE custom:calibre_log
+
+CMD if [ -f "/calibre/.log" ]; then \
+        less -R /calibre/.log; \
+    fi
