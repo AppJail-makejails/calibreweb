@@ -1,0 +1,1 @@
+OPTION volume=calibreweb-conf mountpoint:/conf owner:1001 group:1001
