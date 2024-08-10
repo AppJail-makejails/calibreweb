@@ -1,0 +1,16 @@
+tags: 13.3
+13.3.arch: amd64
+13.3.name: "calibreweb"
+13.3.timestamp.amd64: 1723271440
+13.3.sum.amd64: 8e706891401c5e7d7c61939725f93fa296e50566e62f1fa427d1710091d006ec
+13.3.size.amd64: 1149340494
+13.3.source.amd64: "http://appjail.hpc.at/calibreweb/13.3-amd64-image.appjail"
+13.3.source.amd64+: "https://images.all101bsd.download/calibreweb/13.3-amd64-image.appjail"
+tags+: 14.1
+14.1.arch: amd64
+14.1.name: "calibreweb"
+14.1.timestamp.amd64: 1723273418
+14.1.sum.amd64: 54d9b9bf06ca9f2ac0917d4a175d9349141209fe4bf1d11bed2af2066fd37d4d
+14.1.size.amd64: 1146680217
+14.1.source.amd64: "http://appjail.hpc.at/calibreweb/14.1-amd64-image.appjail"
+14.1.source.amd64+: "https://images.all101bsd.download/calibreweb/14.1-amd64-image.appjail"
