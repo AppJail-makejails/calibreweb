@@ -15,7 +15,8 @@ appjail makejail \
     -j calibreweb \
     -f gh+AppJail-makejails/calibreweb \
     -o virtualnet=":<random> default" \
-    -o nat
+    -o nat \
+    -o expose=8083
 ```
 
 ### Deploy using appjail-director
