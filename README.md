@@ -4,7 +4,7 @@ Calibre-Web is a web app that offers a clean and intuitive interface for browsin
 
 github.com/janeczku/calibre-web
 
-<img src="https://imgur.com/QeWm80K.png" width="30%" height="auto">
+<img src="https://i.ibb.co/nsDkhqY/calibre-web.png" width="30%" height="auto">
 
 ## How to use this Makejail
 
