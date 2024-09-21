@@ -58,7 +58,7 @@ DIRECTOR_PROJECT=calibreweb
 
 ### Arguments (stage: build)
 
-* `calibreweb_tag` (default: `13.3`): See [#tags](#tags).
+* `calibreweb_tag` (default: `13.4`): See [#tags](#tags).
 * `calibreweb_download_metadata` (default: `1`): If set to `1`, the [metadata.db](https://github.com/janeczku/calibre-web/raw/master/library/metadata.db) database will be downloaded to the `/library` directory.
 * `calibreweb_admin_pass` (optional): Change the administrator password.
 
@@ -88,7 +88,7 @@ appjail run -s calibre_log calibreweb
 
 | Tag    | Arch    | Version        | Type   | `calibreweb_version` |
 | ------ | ------- | -------------- | ------ | -------------------- |
-| `13.3` | `amd64` | `13.3-RELEASE` | `thin` | `0.6.23`             |
+| `13.4` | `amd64` | `13.4-RELEASE` | `thin` | `0.6.23`             |
 | `14.1` | `amd64` | `14.1-RELEASE` | `thin` | `0.6.23`             |
 
 ## Notes
