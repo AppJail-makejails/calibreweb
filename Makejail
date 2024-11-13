@@ -39,10 +39,8 @@ WORKDIR /calibre
 ENV OAUTHLIB_RELAX_TOKEN_SCOPE=1
 
 RUN daemon \
-        -r \
         -u calibre \
         -t "Web app for browsing, reading and downloading eBooks stored in a Calibre database" \
-        -P /calibre/.master.pid \
         -p /calibre/.pid \
         -o /calibre/.log \
             .local/bin/cps \
