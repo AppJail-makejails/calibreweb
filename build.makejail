@@ -27,9 +27,7 @@ CMD chown -R calibre:calibre /calibre/src
 
 USER calibre
 WORKDIR /calibre/src
-RUN pip install -r src/calibreweb/requirements.txt
-RUN pip install -r src/calibreweb/optional-requirements.txt
-RUN python setup.py install --user
+RUN pip install --no-cache-dir .
 
 CMD mkdir -p /conf
 CMD chown calibre:calibre /conf
