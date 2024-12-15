@@ -7,11 +7,11 @@ PKG ImageMagick7-nox11 \
     calibre \
     cmake \
     kepubify \
-    py311-sqlite3 \
+    py%%PYVER%%-sqlite3 \
     rust \
     unrar \
-    py311-python-ldap \
-    py311-pip \
+    py%%PYVER%%-python-ldap \
+    py%%PYVER%%-pip \
     python
 
 CMD pw useradd -n calibre -d /calibre -s /bin/sh -c "Web app for browsing, reading and downloading eBooks stored in a Calibre database"

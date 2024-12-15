@@ -12,7 +12,9 @@ cat -- "${BASEDIR}/Makejail.template" |\
     sed -Ee "s/%%TAG1%%/${TAG1}/g" > "${BASEDIR}/../Makejail"
 
 cat -- "${BASEDIR}/build.makejail.template" |\
-    sed -Ee "s/%%VERSION%%/${VERSION}/g" > "${BASEDIR}/../build.makejail"
+    sed -E \
+        -e "s/%%VERSION%%/${VERSION}/g" \
+        -e "s/%%PYVER%%/${PYVER}/g" > "${BASEDIR}/../build.makejail"
 
 cat -- "${BASEDIR}/README.md.template" |\
     sed -E \
