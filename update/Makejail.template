@@ -1,6 +1,6 @@
 INCLUDE options/options.makejail
 
-ARG calibreweb_tag=13.4
+ARG calibreweb_tag=%%TAG1%%
 ARG calibreweb_ajspec=gh+AppJail-makejails/calibreweb
 ARG calibreweb_download_metadata=1
 ARG calibreweb_admin_pass?

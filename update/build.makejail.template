@@ -1,0 +1,37 @@
+INCLUDE options/options.makejail
+INCLUDE options/volumes.makejail
+
+ARG calibreweb_version=%%VERSION%%
+
+PKG ImageMagick7-nox11 \
+    calibre \
+    cmake \
+    kepubify \
+    py311-sqlite3 \
+    rust \
+    unrar \
+    py311-python-ldap \
+    py311-pip \
+    python
+
+CMD pw useradd -n calibre -d /calibre -s /bin/sh -c "Web app for browsing, reading and downloading eBooks stored in a Calibre database"
+CMD mkdir -p /calibre
+CMD chown calibre:calibre /calibre
+
+CMD fetch -o /tmp/calibreweb.tgz \
+        https://github.com/janeczku/calibre-web/releases/download/${calibreweb_version}/calibreweb-${calibreweb_version}.tar.gz
+CMD mkdir -p /calibre/src
+CMD tar -C /calibre/src --strip-components=1 -xf /tmp/calibreweb.tgz
+CMD rm -f /tmp/calibreweb.tgz
+CMD chown -R calibre:calibre /calibre/src
+
+USER calibre
+WORKDIR /calibre/src
+RUN pip install --no-cache-dir .
+
+CMD mkdir -p /conf
+CMD chown calibre:calibre /conf
+
+PKG --remove cmake \
+             rust
+PKG --autoremove
