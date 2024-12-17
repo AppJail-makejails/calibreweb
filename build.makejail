@@ -1,5 +1,6 @@
 INCLUDE options/options.makejail
 INCLUDE options/volumes.makejail
+INCLUDE resizewin-fix.makejail
 
 ARG calibreweb_version=0.6.24
 
