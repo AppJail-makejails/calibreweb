@@ -1,16 +1,17 @@
 tags+: 13.4
 13.4.arch: amd64
 13.4.name: "calibreweb"
-13.4.timestamp.amd64: 1734489095
-13.4.sum.amd64: 6ce5347f96c8fa02833c7835078cab9ee59f8e354a532e2adae368a497c69d6f
-13.4.size.amd64: 880657389
+13.4.timestamp.amd64: 1736243140
+13.4.sum.amd64: 100afb6cee2db91ff0b30b5d39fcc73df9ddc1f44b390e6964ecac4a87c9c953
+13.4.size.amd64: 881644299
 13.4.source.amd64: "http://appjail.hpc.at/calibreweb/13.4-amd64-image.appjail"
 13.4.source.amd64+: "https://images.all101bsd.download/calibreweb/13.4-amd64-image.appjail"
 tags+: 14.2
 14.2.arch: amd64
 14.2.name: "calibreweb"
-14.2.timestamp.amd64: 1734490311
-14.2.sum.amd64: 6ed79a5d145961041b7445926ca51f7fa2395704f9784755d741764b05b24418
-14.2.size.amd64: 883206387
+14.2.timestamp.amd64: 1736243980
+14.2.sum.amd64: e30869eec7f5a53c60f1922898f23fdbf05ca9bd4638b0c99eaf459c84113d69
+14.2.size.amd64: 883767095
 14.2.source.amd64: "http://appjail.hpc.at/calibreweb/14.2-amd64-image.appjail"
 14.2.source.amd64+: "https://images.all101bsd.download/calibreweb/14.2-amd64-image.appjail"
+maintenance: "This image is uploading, please wait a moment and try again. If you are importing this image using a Makejail that has the '--<name>_ajspec' argument, you can use the 'reproduce' method to use 'appjail-reproduce'. See 'appjail-image(5)' for details."
