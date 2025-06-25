@@ -11,7 +11,9 @@ PKG ImageMagick7-nox11 \
     py311-python-ldap \
     py311-pip \
     python \
-    git-lite
+    git-lite \
+    py311-setuptools \
+    python
 
 CMD pw useradd -n calibre -d /calibre -s /bin/sh -c "Web app for browsing, reading and downloading eBooks stored in a Calibre database"
 CMD mkdir -p /calibre
@@ -22,7 +24,11 @@ CMD chown -R calibre:calibre /calibre/src
 
 USER calibre
 WORKDIR /calibre/src
+COPY files/pyproject.toml.patch
+RUN git apply pyproject.toml.patch
 RUN pip install --no-cache-dir .
+RUN rm pyproject.toml.patch
+RUN rm -rf .git
 
 CMD mkdir -p /conf
 CMD chown calibre:calibre /conf

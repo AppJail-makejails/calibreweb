@@ -7,6 +7,8 @@ ARG calibreweb_admin_pass?
 
 FROM --entrypoint "${calibreweb_ajspec}" calibreweb:${calibreweb_tag}
 
+COPY scripts
+
 CMD if [ "${calibreweb_download_metadata}" != 0 ] && [ ! -f /library/metadata.db ]; then \
         mkdir -p /library; \
         fetch -qo /library/metadata.db \
@@ -24,7 +26,7 @@ USER calibre
 WORKDIR /calibre
 
 RAW if [ -n "${calibreweb_admin_pass}" ]; then
-        RUN .local/bin/cps \
+        RUN python src/cps.py \
                 -p /conf \
                 -g /conf \
                 -o /dev/stdout \
@@ -35,20 +37,9 @@ STOP
 
 STAGE start
 
-WORKDIR /calibre
-
 ENV OAUTHLIB_RELAX_TOKEN_SCOPE=1
 
-RUN daemon \
-        -u calibre \
-        -t "Web app for browsing, reading and downloading eBooks stored in a Calibre database" \
-        -p /calibre/.pid \
-        -o /calibre/.log \
-            .local/bin/cps \
-                -i 0.0.0.0 \
-                -p /conf \
-                -g /conf \
-                -o /dev/stdout
+RUN /scripts/start-calibre-web.sh
 
 STAGE custom:calibre_status
 

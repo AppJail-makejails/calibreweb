@@ -1,0 +1,20 @@
+diff --git a/pyproject.toml b/pyproject.toml
+index 778e65e..8d8d0af 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -117,13 +117,11 @@ kobo = [
+     "jsonschema>=3.2.0,<4.24.0",
+ ]
+ 
+-[project.scripts]
+-cps = "calibreweb:main"
+-
+ [tool.setuptools]
+ include-package-data = true
+ license-files = ["LICENSE"]
++py-modules = []
+ 
+ [tool.setuptools.dynamic]
+-version = {attr = "calibreweb.cps.constants.STABLE_VERSION"}
++version = {attr = "cps.constants.STABLE_VERSION"}
+ 

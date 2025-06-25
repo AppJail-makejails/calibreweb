@@ -56,6 +56,10 @@ volumes:
 DIRECTOR_PROJECT=calibreweb
 ```
 
+### Environment (stage: start)
+
+* `CALIBREWEB_ADDRESS` (default: `0.0.0.0`): Server IP-Address to listen.
+
 ### Arguments (stage: build)
 
 * `calibreweb_tag` (default: `13.5`): See [#tags](#tags).
