@@ -1,8 +1,6 @@
 INCLUDE options/options.makejail
 INCLUDE options/volumes.makejail
 
-ARG calibreweb_version=%%VERSION%%
-
 PKG ImageMagick7-nox11 \
     calibre \
     cmake \
@@ -12,17 +10,14 @@ PKG ImageMagick7-nox11 \
     unrar \
     py%%PYVER%%-python-ldap \
     py%%PYVER%%-pip \
-    python
+    python \
+    git-lite
 
 CMD pw useradd -n calibre -d /calibre -s /bin/sh -c "Web app for browsing, reading and downloading eBooks stored in a Calibre database"
 CMD mkdir -p /calibre
 CMD chown calibre:calibre /calibre
 
-CMD fetch -o /tmp/calibreweb.tgz \
-        https://github.com/janeczku/calibre-web/releases/download/${calibreweb_version}/calibreweb-${calibreweb_version}.tar.gz
-CMD mkdir -p /calibre/src
-CMD tar -C /calibre/src --strip-components=1 -xf /tmp/calibreweb.tgz
-CMD rm -f /tmp/calibreweb.tgz
+CMD git clone --depth 1 https://github.com/janeczku/calibre-web.git /calibre/src
 CMD chown -R calibre:calibre /calibre/src
 
 USER calibre
@@ -33,5 +28,6 @@ CMD mkdir -p /conf
 CMD chown calibre:calibre /conf
 
 PKG --remove cmake \
-             rust
+             rust \
+             git-lite
 PKG --autoremove

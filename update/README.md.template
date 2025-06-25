@@ -87,10 +87,10 @@ appjail run -s calibre_log calibreweb
 
 ## Tags
 
-| Tag    | Arch    | Version        | Type   | `calibreweb_version` |
-| ------ | ------- | -------------- | ------ | -------------------- |
-| `%%TAG1%%` | `amd64` | `%%TAG1%%-RELEASE` | `thin` | `%%VERSION%%`             |
-| `%%TAG2%%` | `amd64` | `%%TAG2%%-RELEASE` | `thin` | `%%VERSION%%`             |
+| Tag    | Arch    | Version        | Type   |
+| ------ | ------- | -------------- | ------ |
+| `%%TAG1%%` | `amd64` | `%%TAG1%%-RELEASE` | `thin` |
+| `%%TAG2%%` | `amd64` | `%%TAG2%%-RELEASE` | `thin` |
 
 ## Notes
 
