@@ -12,7 +12,7 @@ daemon \
     -t "Web app for browsing, reading and downloading eBooks stored in a Calibre database" \
     -p /calibre/.pid \
     -o /calibre/.log \
-        python src/cps.py
+        python src/cps.py \
             -i "${CALIBREWEB_ADDRESS}" \
             -p /conf \
             -g /conf \
