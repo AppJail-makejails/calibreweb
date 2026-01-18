@@ -62,7 +62,7 @@ DIRECTOR_PROJECT=calibreweb
 
 ### Arguments (stage: build)
 
-* `calibreweb_tag` (default: `13.5`): See [#tags](#tags).
+* `calibreweb_tag` (default: `14.3`): See [#tags](#tags).
 * `calibreweb_ajspec` (default: `gh+AppJail-makejails/calibreweb`): Entry point where the `appjail-ajspec(5)` file is located.
 * `calibreweb_download_metadata` (default: `1`): If set to `1`, the [metadata.db](https://github.com/janeczku/calibre-web/raw/master/library/metadata.db) database will be downloaded to the `/library` directory.
 * `calibreweb_admin_pass` (optional): Change the administrator password.
@@ -93,8 +93,8 @@ appjail run -s calibre_log calibreweb
 
 | Tag    | Arch    | Version        | Type   |
 | ------ | ------- | -------------- | ------ |
-| `13.5` | `amd64` | `13.5-RELEASE` | `thin` |
 | `14.3` | `amd64` | `14.3-RELEASE` | `thin` |
+| `15` | `amd64` | `15` | `thin` |
 
 ## Notes
 
