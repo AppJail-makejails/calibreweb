@@ -1,9 +1,7 @@
-diff --git a/pyproject.toml b/pyproject.toml
-index 778e65e..8d8d0af 100644
---- a/pyproject.toml
-+++ b/pyproject.toml
-@@ -117,13 +117,11 @@ kobo = [
-     "jsonschema>=3.2.0,<4.24.0",
+--- pyproject.toml.orig	2026-01-19 12:56:26.794995000 -0400
++++ pyproject.toml	2026-01-19 12:56:59.133233000 -0400
+@@ -118,13 +118,10 @@
+     "jsonschema>=3.2.0,<4.30.0",
  ]
  
 -[project.scripts]
@@ -16,5 +14,5 @@ index 778e65e..8d8d0af 100644
  
  [tool.setuptools.dynamic]
 -version = {attr = "calibreweb.cps.constants.STABLE_VERSION"}
+-
 +version = {attr = "cps.constants.STABLE_VERSION"}
- 
